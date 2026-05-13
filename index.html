@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arya Parashar | Portfolio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #0f172a;
+      color: white;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    /* Navbar */
+    nav {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      background: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .nav-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 0;
+    }
+
+    .logo {
+      font-size: 1.7rem;
+      font-weight: 800;
+      color: #38bdf8;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 25px;
+    }
+
+    .nav-links a {
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #38bdf8;
+    }
+
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      background: linear-gradient(to right, rgba(56,189,248,0.15), rgba(168,85,247,0.15));
+      padding-top: 80px;
+    }
+
+    .hero-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      align-items: center;
+      gap: 50px;
+    }
+
+    .hero-text h4 {
+      color: #38bdf8;
+      letter-spacing: 3px;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+    }
+
+    .hero-text h1 {
+      font-size: 4rem;
+      margin-bottom: 20px;
+      line-height: 1.1;
+    }
+
+    .hero-text span {
+      color: #38bdf8;
+    }
+
+    .hero-text p {
+      color: #cbd5e1;
+      margin-bottom: 30px;
+      max-width: 600px;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 14px 30px;
+      border-radius: 12px;
+      font-weight: 600;
+      transition: 0.3s;
+      display: inline-block;
+    }
+
+    .primary-btn {
+      background: #38bdf8;
+      color: #0f172a;
+    }
+
+    .primary-btn:hover {
+      transform: translateY(-3px);
+    }
+
+    .secondary-btn {
+      border: 1px solid #38bdf8;
+    }
+
+    .secondary-btn:hover {
+      background: #38bdf8;
+      color: #0f172a;
+    }
+
+    .hero-image {
+      display: flex;
+      justify-content: center;
+    }
+
+    .profile-image {
+      width: 340px;
+      height: 340px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 6px solid #38bdf8;
+      box-shadow: 0 0 50px rgba(56,189,248,0.4);
+    }
+
+    
+
+    /* Sections */
+    section {
+      padding: 100px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .section-title h2 {
+      font-size: 2.8rem;
+      margin-bottom: 15px;
+    }
+
+    .section-title p {
+      color: #94a3b8;
+    }
+
+    /* Cards */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .card {
+      background: #1e293b;
+      padding: 30px;
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,0.08);
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      border-color: #38bdf8;
+    }
+
+    .card h3 {
+      margin-bottom: 15px;
+      color: #38bdf8;
+    }
+
+    .card p {
+      color: #cbd5e1;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .skill {
+      padding: 10px 16px;
+      border-radius: 30px;
+      background: #334155;
+      font-size: 0.9rem;
+    }
+
+    /* Experience */
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .timeline-item {
+      background: #1e293b;
+      padding: 30px;
+      border-radius: 20px;
+      border-left: 4px solid #38bdf8;
+    }
+
+    .timeline-item h3 {
+      margin-bottom: 10px;
+    }
+
+    .timeline-item span {
+      color: #38bdf8;
+      font-weight: 500;
+    }
+
+    .timeline-item ul {
+      margin-top: 15px;
+      padding-left: 20px;
+      color: #cbd5e1;
+    }
+
+    /* Contact */
+    .contact {
+      text-align: center;
+      background: linear-gradient(to right, rgba(56,189,248,0.15), rgba(168,85,247,0.15));
+      border-radius: 30px;
+      padding: 80px 30px;
+    }
+
+    .contact h2 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+
+    .contact p {
+      color: #cbd5e1;
+      margin-bottom: 30px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 0;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      color: #94a3b8;
+    }
+
+    @media(max-width: 768px) {
+      .hero-text h1 {
+        font-size: 2.8rem;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .profile-image {
+        width: 240px;
+        height: 240px;
+      }
+
+      .contact h2 {
+        font-size: 2.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <div class="container nav-content">
+      <div class="logo">Arya.</div>
+
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container hero-content">
+
+      <div class="hero-text">
+        <h4>Software Developer & Problem Solver</h4>
+
+        <h1>Hi, I'm <span>Arya Parashar</span></h1>
+
+        <p>
+          Passionate Computer Science student focused on building scalable web
+          applications, solving real-world problems, and creating responsive
+          user experiences.
+        </p>
+
+        <div class="btn-group">
+          <a href="mailto:aryaparshar@gmail.com" class="btn primary-btn">
+            Contact Me
+          </a>
+
+          <a href="#projects" class="btn secondary-btn">
+            View Projects
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-image">
+        <img src="arya.jpeg" alt="Arya Parashar" class="profile-image">
+      </div>
+
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <div class="container">
+      <div class="section-title">
+        <h2>About Me</h2>
+        <p>Get to know more about me and my education.</p>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <h3>Who I Am</h3>
+          <p>
+            I am a Computer Science Engineering student with hands-on experience
+            in frontend and backend development. I enjoy creating responsive and
+            scalable applications using modern web technologies.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Education</h3>
+          <p>
+            B.Tech in Computer Science & Engineering<br><br>
+            ABES Engineering College<br>
+            2023 – 2027<br><br>
+            SGPA: 8.26
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section id="experience">
+    <div class="container">
+      <div class="section-title">
+        <h2>Experience</h2>
+        <p>Professional internships and development experience.</p>
+      </div>
+
+      <div class="timeline">
+
+        <div class="timeline-item">
+          <h3>Software Engineering Intern</h3>
+          <span>Aeologic Technologies Pvt Ltd | Nov 2025 – Feb 2026</span>
+
+          <ul>
+            <li>Developed responsive web applications using React.js and Node.js.</li>
+            <li>Integrated RESTful APIs for efficient frontend-backend communication.</li>
+            <li>Resolved software bugs and improved application performance.</li>
+          </ul>
+        </div>
+
+        <div class="timeline-item">
+          <h3>Java Development Intern</h3>
+          <span>Vintech Solutions | Jan 2026 – Feb 2026</span>
+
+          <ul>
+            <li>Developed backend components using Java and OOP principles.</li>
+            <li>Debugged and tested Java applications for improved reliability.</li>
+            <li>Enhanced understanding of DSA and backend development.</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects">
+    <div class="container">
+      <div class="section-title">
+        <h2>Projects</h2>
+        <p>Some of my featured projects.</p>
+      </div>
+
+      <div class="grid">
+
+        <div class="card">
+          <h3>Crowdfunding Platform</h3>
+          <p>
+            Developed a full-stack crowdfunding platform enabling users to create,
+            manage, and fund campaigns securely in real time.
+          </p>
+
+          <div class="skills">
+            <div class="skill">React.js</div>
+            <div class="skill">Node.js</div>
+            <div class="skill">MongoDB</div>
+            <div class="skill">REST API</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Movie Recommendation System</h3>
+          <p>
+            Built a machine learning-based recommendation system using collaborative
+            and content-based filtering techniques.
+          </p>
+
+          <div class="skills">
+            <div class="skill">Python</div>
+            <div class="skill">Flask</div>
+            <div class="skill">Machine Learning</div>
+            <div class="skill">IMDb Dataset</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills">
+    <div class="container">
+      <div class="section-title">
+        <h2>Technical Skills</h2>
+        <p>Technologies and tools I work with.</p>
+      </div>
+
+      <div class="grid">
+
+        <div class="card">
+          <h3>Languages</h3>
+          <div class="skills">
+            <div class="skill">Python</div>
+            <div class="skill">Java</div>
+            <div class="skill">C</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Web Technologies</h3>
+          <div class="skills">
+            <div class="skill">HTML5</div>
+            <div class="skill">CSS3</div>
+            <div class="skill">JavaScript</div>
+            <div class="skill">React.js</div>
+            <div class="skill">Node.js</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Tools & Concepts</h3>
+          <div class="skills">
+            <div class="skill">Git</div>
+            <div class="skill">GitHub</div>
+            <div class="skill">MongoDB</div>
+            <div class="skill">SQL</div>
+            <div class="skill">DSA</div>
+            <div class="skill">DBMS</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Achievements -->
+  <section>
+    <div class="container">
+      <div class="section-title">
+        <h2>Achievements</h2>
+        <p>Highlights from my academic and competitive journey.</p>
+      </div>
+
+      <div class="grid">
+
+        <div class="card">
+          <h3>🏆 Adobe India Hackathon</h3>
+          <p>Top 100 Finalist</p>
+        </div>
+
+        <div class="card">
+          <h3>🌍 ICPC</h3>
+          <p>Ranked 620th Globally</p>
+        </div>
+
+        <div class="card">
+          <h3>🥈 Ardethon</h3>
+          <p>Second Position Winner</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="container">
+      <div class="contact">
+        <h2>Let's Build Something Amazing</h2>
+
+        <p>
+          I’m open to internships, freelance opportunities, and collaborations
+          focused on frontend and software development.
+        </p>
+
+        <div class="btn-group" style="justify-content:center;">
+          <a href="mailto:aryaparshar@gmail.com" class="btn primary-btn">
+            Email Me
+          </a>
+
+          <a href="https://linkedin.com" class="btn secondary-btn">
+            LinkedIn
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2026 Arya Parashar | Portfolio Website</p>
+  </footer>
+
+</body>
+</html>
